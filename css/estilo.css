@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Estilo para o corpo do site em resoluções normais */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0F0F0F;
+}
+
+.navbar-nav .nav-link.active {
+    color: #838383; /* Cor personalizada para o link ativo */
+  }
+  
+  .nav-link{
+    color: white;
+  }
+  
+  .nav-link:hover{
+    color: #0B5ED7;
+  }
+
+/* Definindo a altura das seções para ocupar menos espaço */
+section {
+    height: 100%; /* Cada seção ocupa um quarto da altura da tela */
+    margin-top: 1%;
+}
+
+.cardPerfil {
+    border: 1px solid black;
+    border-radius: 30px;
+    min-width: 549px;
+    min-height: 324px;
+    background: linear-gradient(to bottom right, #202020 0%, #161616 25%, #1D1D1D 50%, #0F0F0F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* Indica que é clicável */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Mantém a cor original */
+}
+
+
+
+.divInterna{
+    min-height: 324px;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+}
+
+.start{
+    align-items: start;
+}
+
+.perfil {
+    max-width: 244px; 
+    max-height: 244px;
+    margin: 2%;
+    border-top-left-radius: 30px; /* Arredonda a parte superior esquerda */
+    border-bottom-right-radius: 30px; /* Arredonda a parte inferior direita */
+    object-fit: cover; /* Para manter a proporção da imagem */
+    align-self: center; /* Centraliza a imagem dentro do contêiner */
+}
+
+.cardPerfil h4{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 14px;
+    color: #838383;
+}
+h1{
+    font-size: 36px;
+    color: white;
+}
+
+p{
+    color: #838383;
+}
+
+.cardLanding{
+    border: 1px solid black;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    min-height: 245px;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    background: linear-gradient(to bottom right,#202020 0%,#161616 25%, #1D1D1D 50%, #0F0F0F 100%);
+    padding: 20px; /* Ajuste de espaçamento */
+    text-align: center; /* Centraliza o conteúdo */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+i{
+    font-size: 100px;
+    color: white;
+}
+
+.cardLanding p {
+    margin: 0px 0; /* Diminui o espaçamento vertical do parágrafo */
+}
+
+.cardLanding h1 {
+    font-size: 1.5rem; /* Ajusta o tamanho do título */
+    margin-top: 0x; /* Diminui o espaço entre o <p> e o <h1> */
+}
+
+/* Mantém o fundo com gradiente */
+.background {
+    background: linear-gradient(to bottom right, #212121, #131313);
+}
+
+/* Ocultar o aviso mobile-block por padrão */
+.mobile-block {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Fundo cinza escuro */
+    z-index: 9999;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-block p {
+    font-size: 1.2em;
+    padding: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra aplicada nas letras */
+}
+
+/* Exibir o aviso em dispositivos móveis */
+@media (max-width: 768px) {
+    .mobile-block {
+        display: flex; /* Mostra o aviso apenas em dispositivos móveis */
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: transparent;
+}
+
+.rounded-custom {
+    width: 150px;  /* Ajuste conforme necessário */
+    height: 150px; /* Ajuste conforme necessário */
+    
+    
+}
+
+.cardPerfil .bi-arrow-up-right-square {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px; /* Distância da parte inferior do card */
+    right: -90%; /* Distância da parte direita do card */
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #0B5ED7; /* Cor branca */
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.cardPerfil .bi-arrow-up-right-square-fill{
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px; /* Distância da parte inferior do card */
+    right: -90%; /* Distância da parte direita do card */
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #0B5ED7; /* Cor branca */
+    opacity: 0;
+} 
+
+.cardPerfil:hover{
+    box-shadow: 5px 5px 5px black;
+    transition: box-shadow 0.5s ease;
+}
+
+.cardPerfil:hover .bi-arrow-up-right-square {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.cardPerfil:hover .bi-arrow-up-right-square-fill {
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+.cardLanding:hover{
+    box-shadow: 5px 5px 5px black;
+    transition: box-shadow 0.5s ease;
+}
+
+.cardLanding:hover .bi-arrow-up-right-square {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.cardLanding:hover .bi-arrow-up-right-square-fill {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+
+.cardLanding .bi-arrow-up-right-square-fill {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #198754;
+    opacity: 0;
+}
+
+.cardLanding .bi-arrow-up-right-square {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #198754;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.assinatura{
+    max-height: 100px;
+}
+
+.cardSociais{
+    border: 1px solid black;
+    border-radius: 30px;
+    background: linear-gradient(to bottom right,#202020 0%,#161616 25%, #1D1D1D 50%, #0F0F0F 100%);
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.cardSociais:hover{
+    box-shadow: 5px 5px 5px black;
+    transition: box-shadow 0.5s ease;
+}
+
+.cardSociais:hover .bi-arrow-up-right-square {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.cardSociais:hover .bi-arrow-up-right-square-fill {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+
+.cardSociais .bi-arrow-up-right-square-fill {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #FFC107;
+    opacity: 0;
+}
+
+.cardSociais .bi-arrow-up-right-square {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #FFC107;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.cardSociais p {
+    margin: 0px 0; /* Diminui o espaçamento vertical do parágrafo */
+}
+
+.cardSociais h1 {
+    font-size: 1.5rem; /* Ajusta o tamanho do título */
+    margin-top: 0x; /* Diminui o espaço entre o <p> e o <h1> */
+}
+
+.cardServicos{
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 100%;
+    max-width: 630px;
+    background: linear-gradient(to bottom right,#202020 0%,#161616 25%, #1D1D1D 50%, #0F0F0F 100%);
+    position: relative;
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.cardServicos:hover{
+    box-shadow: 5px 5px 5px black;
+    transition: box-shadow 0.5s ease;
+}
+
+.cardServicos i{
+    font-size: 1.8rem;
+    margin-left: 7%;
+}
+
+.cardServicos p {
+    position: absolute;
+    margin-top: 14%; /* Diminui o espaçamento vertical do parágrafo */
+}
+
+.cardServicos h1 {
+    position: absolute;
+    font-size: 1.5rem; /* Ajusta o tamanho do título */
+    margin-top: 20%; /* Diminui o espaço entre o <p> e o <h1> */
+}
+
+.cardServicos .bi-arrow-up-right-square {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #E15361;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.cardServicos .bi-arrow-up-right-square-fill {
+    position: absolute; /* Define o ícone como absoluto em relação ao card */
+    bottom: 10px;
+    right: 5%;
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #E15361;
+    opacity: 0;
+}
+
+.cardServicos:hover .bi-arrow-up-right-square {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.cardServicos:hover .bi-arrow-up-right-square-fill {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.bi-linkedin{
+    font-size: 4rem;
+    margin-right: 10%;
+}
+
+.bi-instagram{
+    font-size: 4rem;
+    margin-left: 10%;
+}
+
+.iconServicos{
+    font-size: 3rem;
+    margin: 4%;
+    margin-bottom: 20%;
+}
+
+a{
+    text-decoration: none;
+}
+
+#transition-block {
+    position: fixed;
+    top: 70px; /* Mesma altura da navbar */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Começa cobrindo tudo */
+    background-color: #000;
+    z-index: 9998;
+    transition: height 0.8s ease-in-out;
+}
