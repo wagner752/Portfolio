@@ -1,7 +1,7 @@
 var path = window.location.pathname;
     
 // Seleciona o link correto com base na URL
-if (path.includes("home.html")) {
+if (path.includes("index.html")) {
     document.getElementById("home-link").classList.add("active");
 } else if (path.includes("about.html")) {
     document.getElementById("sobre-link").classList.add("active");
