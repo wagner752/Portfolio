@@ -54,7 +54,7 @@ window.addEventListener('load', () => {
 
 
 function garantiaTransicao(){
-    transitionBlock.style.height = "0%";
+    window.location.reload(forcedReload);
 }
     
 
