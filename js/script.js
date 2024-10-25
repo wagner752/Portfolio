@@ -20,15 +20,12 @@ function checkWidth() {
         document.querySelector('.site-content').style.display = 'block';
     }
 }
-// Selecionar o bloco de transição
-const transitionBlock = document.getElementById('transition-block');
+
 // Selecionar todos os links clicáveis (cards e links da navbar)
 const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
 
-// Função para iniciar a animação
-function startTransition() {
-    transitionBlock.style.height = "100%"; // Ativa a animação do retângulo para crescer de cima para baixo
-}
+// Selecionar o bloco de transição
+const transitionBlock = document.getElementById('transition-block');
 
 // Adicionar evento de clique aos links
 clickableElements.forEach(element => {
@@ -37,8 +34,8 @@ clickableElements.forEach(element => {
         
         const link = event.target.closest('a').href; // Pega o link que foi clicado
 
-        // Iniciar a animação
-        startTransition();
+        // Ativar a animação do retângulo para crescer de cima para baixo
+        transitionBlock.style.height = "100%";
 
         // Aguarde o fim da animação (800ms), depois redirecione
         setTimeout(() => {
@@ -46,11 +43,6 @@ clickableElements.forEach(element => {
         }, 800); // O tempo deve coincidir com o transition do CSS
     });
 });
-
-// Iniciar a animação automaticamente após 2 segundos se nenhum botão for clicado
-setTimeout(() => {
-    transitionBlock.style.height = "0%";
-}, 2000); // 2000 ms = 2 segundos
 
 window.addEventListener('load', () => {
     const transitionBlock = document.getElementById('transition-block');
@@ -61,6 +53,10 @@ window.addEventListener('load', () => {
 });
 
 
+function garantiaTransicao(){
+    transitionBlock.style.height = "0%";
+}
+    
 
 function descricaoCargo1(){
     var descricao = "Durante minha trajetória na Gentil Negócios, aperfeiçoei minhas habilidades, finalizei minha graduação e obtive as primeiras certificações na área de TI. Atuei continuamente no suporte técnico, chegando ao nível N3 em serviços específicos, além de ser o responsável pelos atendimentos do time de técnicos em campo. Participei de projetos de implementação de serviços e melhorias, sempre com foco na continuidade e no sucesso do negócio. Ao longo dessa jornada, mantive um desempenho acima da média (avaliado em feedbacks 360° entre os colaboradores) e alinhado aos valores da empresa, recebendo feedbacks construtivos. Em agosto de 2024, tive meu desligamento anunciado (e, aqui, um parêntese: só Deus sabe o porquê disso!), e agora estou em busca de recolocação na área de Cibersegurança."
