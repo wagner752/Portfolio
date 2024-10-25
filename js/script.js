@@ -52,10 +52,17 @@ window.addEventListener('load', () => {
     }, 100); // Pequeno delay para garantir que o retângulo apareça antes de começar a esconder
 });
 
-
-function reload(){
-    window.location.reload(true);
+function reloadPage() {
+    window.location.reload(); // Ou use uma abordagem de cache-busting se necessário
 }
+
+// Adiciona um listener para o evento 'popstate'
+window.addEventListener('popstate', function(event) {
+    reloadPage(); // Chama a função de recarregar a página
+});
+
+// Chamando a função também na carga inicial da página
+window.addEventListener('load', reloadPage);
     
 
 function descricaoCargo1(){
