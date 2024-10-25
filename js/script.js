@@ -20,10 +20,6 @@ function checkWidth() {
         document.querySelector('.site-content').style.display = 'block';
     }
 }
-
-// Selecionar todos os links clicáveis (cards e links da navbar)
-const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
-
 // Selecionar o bloco de transição
 const transitionBlock = document.getElementById('transition-block');
 // Selecionar todos os links clicáveis (cards e links da navbar)
