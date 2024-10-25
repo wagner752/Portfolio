@@ -84,7 +84,18 @@ window.addEventListener('replacestate', () => {
     startTransition(currentPage); // Inicia a animação ao substituir a página
 });
 
-
+window.addEventListener('popstate', () => {
+    console.log('Popstate event triggered');
+    const currentPage = window.location.href;
+    
+    // Verifica se a cortina já está baixada
+    if (transitionBlock.style.height === "100%") {
+        console.log('Transition block is currently down, hiding it.');
+        transitionBlock.style.height = "0%"; // Tenta subir a cortina
+    } else {
+        startTransition(currentPage); // Inicia a animação ao voltar
+    }
+});
 
 
 function descricaoCargo1(){
