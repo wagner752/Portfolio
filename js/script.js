@@ -20,52 +20,70 @@ function checkWidth() {
         document.querySelector('.site-content').style.display = 'block';
     }
 }
-
-// Selecionar todos os links clicáveis (cards e links da navbar)
-const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
-
-// Selecionar o bloco de transição
-const transitionBlock = document.getElementById('transition-block');
-// Selecionar todos os links clicáveis (cards e links da navbar)
-const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
-
 // Selecionar o bloco de transição
 const transitionBlock = document.getElementById('transition-block');
 
 // Função para iniciar a animação
-function startTransition() {
+function startTransition(link) {
     transitionBlock.style.height = "100%"; // Ativa a animação do retângulo para crescer de cima para baixo
+
+    // Aguarde o fim da animação (800ms), depois redirecione
+    setTimeout(() => {
+        window.location.href = link; // Redireciona para o link clicado
+    }, 800); // O tempo deve coincidir com o transition do CSS
 }
 
-// Adicionar evento de clique aos links
-clickableElements.forEach(element => {
+// Função para alterar a página e iniciar a transição
+function changePage(link) {
+    startTransition(link); // Inicia a animação
+}
+
+// Manipulação de eventos de clique para links
+document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos').forEach(element => {
     element.addEventListener('click', (event) => {
         event.preventDefault(); // Prevenir que o link navegue instantaneamente
-        
         const link = event.target.closest('a').href; // Pega o link que foi clicado
-
-        // Iniciar a animação
-        startTransition();
-
-        // Aguarde o fim da animação (800ms), depois redirecione
-        setTimeout(() => {
-            window.location.href = link; // Redireciona para o link clicado
-        }, 800); // O tempo deve coincidir com o transition do CSS
+        changePage(link); // Chama a função para mudar de página
     });
 });
 
-// Iniciar a animação automaticamente após 2 segundos se nenhum botão for clicado
-setTimeout(() => {
-    startTransition(); // Inicia a animação após 2 segundos
-}, 2000); // 2000 ms = 2 segundos
-
+// Inicializa a transição ao carregar a página
 window.addEventListener('load', () => {
-    const transitionBlock = document.getElementById('transition-block');
-    
     setTimeout(() => {
         transitionBlock.style.height = "0%"; // Reduz a altura para 0, revelando os elementos
     }, 100); // Pequeno delay para garantir que o retângulo apareça antes de começar a esconder
 });
+
+// Interceptar as navegações de página
+history.pushState = (f => function pushState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('pushstate'));
+    return ret;
+})(history.pushState);
+
+history.replaceState = (f => function replaceState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('replacestate'));
+    return ret;
+})(history.replaceState);
+
+window.addEventListener('popstate', () => {
+    // Aqui, você pode iniciar a transição quando o usuário voltar à página anterior
+    const currentPage = window.location.href;
+    startTransition(currentPage); // Inicia a animação ao voltar
+});
+
+// Quando o usuário altera a URL (por exemplo, com o History API)
+window.addEventListener('pushstate', () => {
+    const currentPage = window.location.href;
+    startTransition(currentPage); // Inicia a animação ao mudar a página
+});
+
+window.addEventListener('replacestate', () => {
+    const currentPage = window.location.href;
+    startTransition(currentPage); // Inicia a animação ao substituir a página
+});
+
 
 
 
