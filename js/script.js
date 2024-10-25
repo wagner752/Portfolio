@@ -53,8 +53,8 @@ window.addEventListener('load', () => {
 });
 
 
-function garantiaTransicao(){
-    window.location.reload(forcedReload);
+function reload(){
+    window.location.reload(true);
 }
     
 
