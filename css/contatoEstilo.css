@@ -138,3 +138,30 @@ a{
     z-index: 9998;
     transition: height 0.8s ease-in-out;
 }
+
+
+/* Mantém o fundo com gradiente */
+.background {
+    background: linear-gradient(to bottom right, #212121, #131313);
+}
+.mobile-block {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .mobile-block {
+        display: flex;
+    }
+}

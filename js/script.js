@@ -11,29 +11,15 @@ if (path.includes("index.html")) {
     document.getElementById("hardskills-link").classList.add("active");
 } 
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Verifica a largura da janela
-    function checkWidth() {
-        if (window.innerWidth < 1024) {
-            // Se a largura for menor que 1024px, mostra a mensagem de bloqueio
-            document.querySelector('.mobile-block').style.display = 'flex';
-            document.querySelector('.site-content').style.display = 'none';
-        } else {
-            // Se a largura for maior ou igual a 1024px, esconde a mensagem de bloqueio
-            document.querySelector('.mobile-block').style.display = 'none';
-            document.querySelector('.site-content').style.display = 'block';
-        }
+function checkWidth() {
+    if (window.innerWidth < 1024) {
+        document.querySelector('.mobile-block').style.display = 'flex';
+        document.querySelector('.site-content').style.display = 'none';
+    } else {
+        document.querySelector('.mobile-block').style.display = 'none';
+        document.querySelector('.site-content').style.display = 'block';
     }
-
-    // Executa a verificação inicial
-    checkWidth();
-
-    // Adiciona um evento de resize para verificar a largura ao redimensionar a janela
-    window.addEventListener('resize', checkWidth);
-});
-
+}
 
 // Selecionar todos os links clicáveis (cards e links da navbar)
 const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
@@ -69,22 +55,22 @@ window.addEventListener('load', () => {
 
 
 function descricaoCargo1(){
-    var descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    var descricao = "Durante minha trajetória na Gentil Negócios, aperfeiçoei minhas habilidades, finalizei minha graduação e obtive as primeiras certificações na área de TI. Atuei continuamente no suporte técnico, chegando ao nível N3 em serviços específicos, além de ser o responsável pelos atendimentos do time de técnicos em campo. Participei de projetos de implementação de serviços e melhorias, sempre com foco na continuidade e no sucesso do negócio. Ao longo dessa jornada, mantive um desempenho acima da média (avaliado em feedbacks 360° entre os colaboradores) e alinhado aos valores da empresa, recebendo feedbacks construtivos. Em agosto de 2024, tive meu desligamento anunciado (e, aqui, um parêntese: só Deus sabe o porquê disso!), e agora estou em busca de recolocação na área de Cibersegurança."
     return descricao;
 }
 
 function descricaoCargo2(){
-    var descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    var descricao = "Saí da Potigás e entrei na Gentil Negócios em junho de 2021 como estagiário, assumindo a responsabilidade pelo atendimento de N1 e N2 no escritório e nas lojas do Grupo Boticário no RN, CE, MA e PB. Os atendimentos cobriam incidentes e requisições relacionados à infraestrutura e à manutenção de todo o parque tecnológico da Gentil e do Boticário, além de atuar como ponto focal de comunicação entre a indústria e a Gentil Negócios. Dentro de um mês, comecei a colaborar em pequenos projetos de melhoria na empresa e fui efetivado, tornando-me o estagiário mais rapidamente promovido na organização."
     return descricao;
 }
 
 function descricaoCargo3(){
-    var descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    var descricao = " Iniciei meu estágio sendo responsável pelos atendimentos N1 na empresa, realizando a tratativa de incidentes de redes e software. Fui bastante elogiado pelo excelente trabalho em equipe e pela redução significativa de novos incidentes no HelpDesk. Durante esse período, aprendi sobre documentação, boas práticas e virtualização de ambientes, além de contribuir para o desenvolvimento de serviços utilizados pela empresa. Fui sempre metódico e organizado com as demandas que me eram atribuídas. Encerrei meu contrato devido ao fato de a empresa ser uma Sociedade de Economia Mista e não poder contratar novos colaboradores."
     return descricao;
 }
 
 function descricaoCargo4(){
-    var descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    var descricao = "Em paralelo ao estágio na Potigás, fui Bolsista de Apoio Técnico no LabInfo (Laboratório de Informática do Centro de Biociências da UFRN), onde, junto com meu time, éramos responsáveis por prestar suporte técnico a todo o setor da UFRN. Realizávamos atendimentos N1 e N2, manutenção de hardware, redes e sistema de som, além de gerenciar e realizar a manutenção preventiva em todos os computadores do setor, garantindo a operação eficiente do parque tecnológico."
     return descricao;
 }
 
