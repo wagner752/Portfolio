@@ -27,43 +27,38 @@ const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, 
 // Selecionar o bloco de transição
 const transitionBlock = document.getElementById('transition-block');
 
+// Função para iniciar a animação de transição
+function startTransition(link) {
+    transitionBlock.style.height = "100%"; // Ativa a animação do retângulo
+
+    // Aguarde o fim da animação (800ms), depois redirecione
+    setTimeout(() => {
+        window.location.href = link; // Redireciona para o link clicado
+    }, 800); // O tempo deve coincidir com o transition do CSS
+}
+
 // Adicionar evento de clique aos links
 clickableElements.forEach(element => {
     element.addEventListener('click', (event) => {
         event.preventDefault(); // Prevenir que o link navegue instantaneamente
-        
         const link = event.target.closest('a').href; // Pega o link que foi clicado
-
-        // Ativar a animação do retângulo para crescer de cima para baixo
-        transitionBlock.style.height = "100%";
-
-        // Aguarde o fim da animação (800ms), depois redirecione
-        setTimeout(() => {
-            window.location.href = link; // Redireciona para o link clicado
-        }, 800); // O tempo deve coincidir com o transition do CSS
+        history.pushState(null, '', link); // Adiciona o novo estado ao histórico
+        startTransition(link); // Chama a função para iniciar a transição
     });
 });
 
+// Evento para recarregar a página ao usar o botão de voltar ou avançar
+window.addEventListener('popstate', () => {
+    window.location.reload(); // Recarrega a página
+});
+
+// Início da animação ao carregar a página
 window.addEventListener('load', () => {
-    const transitionBlock = document.getElementById('transition-block');
-    
     setTimeout(() => {
         transitionBlock.style.height = "0%"; // Reduz a altura para 0, revelando os elementos
     }, 100); // Pequeno delay para garantir que o retângulo apareça antes de começar a esconder
 });
 
-function reloadPage() {
-    window.location.reload(); // Ou use uma abordagem de cache-busting se necessário
-}
-
-// Adiciona um listener para o evento 'popstate'
-window.addEventListener('popstate', function(event) {
-    reloadPage(); // Chama a função de recarregar a página
-});
-
-// Chamando a função também na carga inicial da página
-window.addEventListener('load', reloadPage);
-    
 
 function descricaoCargo1(){
     var descricao = "Durante minha trajetória na Gentil Negócios, aperfeiçoei minhas habilidades, finalizei minha graduação e obtive as primeiras certificações na área de TI. Atuei continuamente no suporte técnico, chegando ao nível N3 em serviços específicos, além de ser o responsável pelos atendimentos do time de técnicos em campo. Participei de projetos de implementação de serviços e melhorias, sempre com foco na continuidade e no sucesso do negócio. Ao longo dessa jornada, mantive um desempenho acima da média (avaliado em feedbacks 360° entre os colaboradores) e alinhado aos valores da empresa, recebendo feedbacks construtivos. Em agosto de 2024, tive meu desligamento anunciado (e, aqui, um parêntese: só Deus sabe o porquê disso!), e agora estou em busca de recolocação na área de Cibersegurança."
