@@ -25,9 +25,6 @@ const transitionBlock = document.getElementById('transition-block');
 // Selecionar todos os links clicáveis (cards e links da navbar)
 const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
 
-// Selecionar o bloco de transição
-const transitionBlock = document.getElementById('transition-block');
-
 // Função para iniciar a animação
 function startTransition() {
     transitionBlock.style.height = "0%"; // Ativa a animação do retângulo para crescer de cima para baixo
