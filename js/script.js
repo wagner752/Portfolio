@@ -26,6 +26,16 @@ const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, 
 
 // Selecionar o bloco de transição
 const transitionBlock = document.getElementById('transition-block');
+// Selecionar todos os links clicáveis (cards e links da navbar)
+const clickableElements = document.querySelectorAll('a.nav-link, .navbar-brand, .botaoNavbar, .cardPerfil, .cardSociais, .cardLanding, .cardServicos');
+
+// Selecionar o bloco de transição
+const transitionBlock = document.getElementById('transition-block');
+
+// Função para iniciar a animação
+function startTransition() {
+    transitionBlock.style.height = "100%"; // Ativa a animação do retângulo para crescer de cima para baixo
+}
 
 // Adicionar evento de clique aos links
 clickableElements.forEach(element => {
@@ -34,8 +44,8 @@ clickableElements.forEach(element => {
         
         const link = event.target.closest('a').href; // Pega o link que foi clicado
 
-        // Ativar a animação do retângulo para crescer de cima para baixo
-        transitionBlock.style.height = "100%";
+        // Iniciar a animação
+        startTransition();
 
         // Aguarde o fim da animação (800ms), depois redirecione
         setTimeout(() => {
@@ -43,6 +53,11 @@ clickableElements.forEach(element => {
         }, 800); // O tempo deve coincidir com o transition do CSS
     });
 });
+
+// Iniciar a animação automaticamente após 2 segundos se nenhum botão for clicado
+setTimeout(() => {
+    startTransition(); // Inicia a animação após 2 segundos
+}, 2000); // 2000 ms = 2 segundos
 
 window.addEventListener('load', () => {
     const transitionBlock = document.getElementById('transition-block');
